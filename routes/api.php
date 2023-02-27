@@ -1,0 +1,46 @@
+<?php
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CalculatorController;
+use App\Http\Controllers\UserController;
+
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "api" middleware group. Make something great!
+|
+*/
+
+Route::post('/login', [LoginController::class, 'login']);
+
+Route::middleware('auth:api')->group(function () {
+    Route::get('/logout', [LoginController::class, 'logout']);
+
+    //Users
+    Route::controller(UserController::class)->group(function () {
+        Route::prefix('user')->group(function () {
+            Route::get('/index', 'index');
+            Route::post('/store', 'store');
+            Route::post('/show/{userId}', 'show');
+            Route::post('/destroy/{userId}', 'destroy');
+        });
+    });
+
+    //Calculators
+    Route::controller(CalculatorController::class)->group(function () {
+        Route::prefix('calculator')->group(function () {
+            Route::post('', 'calculate');
+            Route::get('/index', 'getCalculations');
+            Route::post('/store', 'store');
+            Route::delete('/destroy/{calculationId}', 'destroy');
+            Route::delete('/destroyAll', 'destroyAll');
+        });
+    });
+
+});
