@@ -17,7 +17,7 @@ class CalculatorFactory extends Factory
     public function definition(): array
     {
         return [
-            'operation' => '3+(4-7)+17-1*4',
+            'operation' => '3+(4-7)-1*4+' . fake()->randomDigit(),
             'result' => fake()->randomDigit(),
         ];
     }

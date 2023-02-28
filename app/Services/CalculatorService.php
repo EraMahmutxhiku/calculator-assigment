@@ -25,10 +25,8 @@ class CalculatorService implements CalculatorServiceInterface
         return $this->calculatorRepository->getLatestCalculations();
     }
 
-    public function storeCalculation($calculation)
+    public function storeCalculation($calculation, $result)
     {
-        $result = '34';
-//        $result = $this->getResultFromOperation($operationToExecute);
 
         $data = [
             'operation' => $calculation,

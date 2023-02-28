@@ -12,15 +12,5 @@ class Calculator extends Model
     protected $fillable = [
         'operation',
         'result',
-//        'updated_date'
     ];
-
-//    protected $hidden = [
-//        'created_at',
-//        'updated_at',
-//    ];
-
-//    protected $casts = [
-//        'updated_date' => 'datetime'
-//    ];
 }

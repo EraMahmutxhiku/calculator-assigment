@@ -4,40 +4,37 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\CalculatorResource;
 use App\Interfaces\Services\CalculatorServiceInterface;
+use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Illuminate\Http\Request;
 
 class CalculatorController extends Controller
 {
     protected $calculatorService;
+    protected $expressionLanguage;
 
-    public function __construct(CalculatorServiceInterface $calculatorService)
-    {
+    public function __construct
+    (
+        CalculatorServiceInterface $calculatorService,
+        ExpressionLanguage $expressionLanguage,
+    ){
         $this->calculatorService = $calculatorService;
+        $this->expressionLanguage = $expressionLanguage;
     }
 
     public function calculate(Request $request)
     {
-        $expression = $request->calculation;
+        $operation = $request->calculation;
+        $result = $this->expressionLanguage->evaluate($operation);
+        $this->calculatorService->storeCalculation($operation, $result);
 
-        return response(1);
+        return $this->expressionLanguage->evaluate($operation);
     }
-
 
     public function getCalculations()
     {
         $operations = $this->calculatorService->getRecentCalculations();
 
         return CalculatorResource::collection($operations);
-    }
-
-    public function store(Request $request)
-    {
-        $operation = $request->calculation;
-//        $result = $this->getResultFromOperation($operationToExecute);
-
-        $calculation = $this->calculatorService->storeCalculation($operation);
-
-        return new CalculatorResource($calculation);
     }
 
     public function destroy($calculationId)
