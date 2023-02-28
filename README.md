@@ -24,15 +24,8 @@ To use the Calculator API, the following things are required:
 
 + PHP >= 7.4
 
-## Preparation
-The application requires that node and npm are installed beforehand. Also you will need a local setup of postgres database.
 
-Node version: ```14.19.2```
-
-
-
-Prerequisites
------
+# Docker Preparation
 
 I assume you have installed Docker and it is running.
 
@@ -69,9 +62,6 @@ cd resources/scripts && npm start
 ## Environment
 
 Environment setup is as easy as it comes. There is already a ```.env.example``` file inside the repository. First step would be to copy that file to another named ```.env```.
-```
-
-```
 
 [//]: # (## Installation)
 
