@@ -22,16 +22,6 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::middleware('auth:api')->group(function () {
     Route::get('/logout', [LoginController::class, 'logout']);
 
-    //Users
-    Route::controller(UserController::class)->group(function () {
-        Route::prefix('user')->group(function () {
-            Route::get('/index', 'index');
-            Route::post('/store', 'store');
-            Route::post('/show/{userId}', 'show');
-            Route::post('/destroy/{userId}', 'destroy');
-        });
-    });
-
     //Calculators
     Route::controller(CalculatorController::class)->group(function () {
         Route::prefix('calculator')->group(function () {

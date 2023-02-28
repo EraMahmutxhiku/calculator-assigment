@@ -15,8 +15,9 @@ class CalculatorController extends Controller
     public function __construct
     (
         CalculatorServiceInterface $calculatorService,
-        ExpressionLanguage $expressionLanguage,
-    ){
+        ExpressionLanguage         $expressionLanguage,
+    )
+    {
         $this->calculatorService = $calculatorService;
         $this->expressionLanguage = $expressionLanguage;
     }

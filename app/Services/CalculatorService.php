@@ -9,15 +9,12 @@ use App\Interfaces\Repositories\CalculatorRepositoryInterface;
 class CalculatorService implements CalculatorServiceInterface
 {
     protected $calculatorRepository;
-    protected $calculatorDomain;
 
     public function __construct(
         CalculatorRepositoryInterface $calculatorRepository,
-        CalculatorDomainInterface $calculatorDomain
     )
     {
         $this->calculatorRepository = $calculatorRepository;
-        $this->calculatorDomain = $calculatorDomain;
     }
 
     public function getRecentCalculations()

@@ -1,29 +1,40 @@
 ## Calculator Assignment 
 
----
-### Index
-- [About](#about)
-- [Requirements](#requirements)
-- [Composer Installation](#composer-installation)
-- [Requirements](#requirements)
-- [Example](#example)
-- [Contribute](#contribute)
-- [Versioning](#versioning)
-- [Additional information](#additional-information)
----
-
 ## Description
 
 A Calculator with basic arithmetic operations (addition, subtraction, multiplication and division) and brackets. This calculator
 keeps track of 10 latest calculations done in the history section. 
 The frontend is under the path resources/scripts. 
 
-## Requirements
+## Laravel 
 
-To use the Calculator API, the following things are required:
+You will need to install the passport 
+```
+php artisan passport:install
+```
+For the database you need to run the migrations
+```
+php artisan migrate
+```
+For seeding the tables you need to run the ``` db:seed ``` command
+```
+php artisan db:seed
+```
+also run the optimization command
+```
+php artisan optimize
+```
 
-+ PHP >= 7.4
+## React
 
+You will need to install the npm
+```
+npm i 
+```
+and start
+```
+npm start
+```
 
 # Docker Preparation
 
@@ -107,11 +118,11 @@ Example Request Body:
 }
 ```
 
-### POST ```/calculator/getResult```
+### POST ```/calculator/calculate```
 
 Here you can retrieve your current calculation result
 
-### GET ```/calculator/getRecentCalculations```
+### GET ```/calculator/getCalculations```
 
 Here you can retrieve your latest calculations
 
