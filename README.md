@@ -30,6 +30,42 @@ The application requires that node and npm are installed beforehand. Also you wi
 Node version: ```14.19.2```
 
 
+
+Prerequisites
+-----
+
+I assume you have installed Docker and it is running.
+
+See the [Docker website](http://www.docker.io/gettingstarted/#h_installation) for installation instructions.
+
+### Laravel Docker
+
+Start by installing sail with the following command
+
+```
+php artisan sail:install
+```
+next choose the database ``` [0] - MySQL ``` and then you run the following command 
+
+```
+./vendor/bin/sail up 
+```
+
+### React Docker
+
+Since the frontend directory is under the path ```resources/scripts```, you need to run the command  
+```
+cd resources/scripts/ && docker compose -f "docker-compose.yml" up -d --build
+```
+#### for starting the backend: 
+```
+php artisan serve --host=0.0.0.0 --port=80
+```
+#### for starting the frontend:
+```
+cd resources/scripts && npm start
+```
+
 ## Environment
 
 Environment setup is as easy as it comes. There is already a ```.env.example``` file inside the repository. First step would be to copy that file to another named ```.env```.
