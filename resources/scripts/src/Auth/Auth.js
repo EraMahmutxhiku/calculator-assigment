@@ -17,7 +17,7 @@ export default function Login() {
             "email":email,
             "password":password
         }
-      axios.post('http://127.0.0.1:8000/api/login',loginData,{
+      axios.post('http://0.0.0.0/api/login',loginData,{
           headers: {
               'Content-Type': 'application/json'
           }

@@ -29,16 +29,16 @@ const Calculator = () => {
     }
 
     const results = () => {
-        axios.post('http://127.0.0.1:8000/api/calculator', {'calculation': cal}, {headers: {'Authorization': 'Bearer ' + token}}).then((res) => {
+        axios.post('http://0.0.0.0/api/calculator', {'calculation': cal}, {headers: {'Authorization': 'Bearer ' + token}}).then((res) => {
             setResult(res.data);
 
         })
-        axios.get('http://127.0.0.1:8000/api/calculator/index', {headers: {'Authorization': 'Bearer ' + token}}).then((res) => {
+        axios.get('http://0.0.0.0/api/calculator/index', {headers: {'Authorization': 'Bearer ' + token}}).then((res) => {
             setHistory(res.data.data)
         })
     }
     const deleteAll = () => {
-        axios.delete('http://127.0.0.1:8000/api/calculator/destroyAll', {headers: {'Authorization': 'Bearer ' + token}}).then(() => {
+        axios.delete('http://0.0.0.0/api/calculator/destroyAll', {headers: {'Authorization': 'Bearer ' + token}}).then(() => {
             setHistory([])
         })
     }
