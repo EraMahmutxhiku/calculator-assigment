@@ -12,6 +12,7 @@ You will need to install the passport
 ```
 php artisan passport:install
 ```
+
 For the database you need to run the migrations
 ```
 php artisan migrate
@@ -27,13 +28,13 @@ php artisan optimize
 
 ## React
 
-You will need to install the npm
+Since the frontend is located under resources/scripts you will need to run this command from the root directory of the project
 ```
-npm i 
+cd resources/scripts/ && npm install
 ```
 and start
 ```
-npm start
+cd resources/scripts/ && npm start
 ```
 
 # Docker Preparation
