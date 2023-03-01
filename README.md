@@ -25,6 +25,10 @@ also run the optimization command
 ```
 php artisan optimize
 ```
+for starting the backend:
+```
+php artisan serve --host=0.0.0.0 --port=80
+```
 
 ## React
 
@@ -62,14 +66,8 @@ Since the frontend directory is under the path ```resources/scripts```, you need
 ```
 cd resources/scripts/ && docker compose -f "docker-compose.yml" up -d --build
 ```
-#### for starting the backend: 
-```
-php artisan serve --host=0.0.0.0 --port=80
-```
-#### for starting the frontend:
-```
-cd resources/scripts && npm start
-```
+
+
 
 ## Environment
 
